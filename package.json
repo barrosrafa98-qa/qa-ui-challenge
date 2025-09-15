@@ -1,0 +1,33 @@
+{
+  "name": "qa-ui-challenge",
+  "version": "1.0.0",
+  "description": "- Create SQLite DB: `sqlite3 db/seed.db < db/init.sql`",
+  "main": "index.js",
+  "scripts": {
+    "api:start": "node api/server.js",
+    "ui:serve": "http-server ui -p 8080 -c-1 --cors",
+    "start:all": "concurrently -n API,UI -c green,cyan \"npm run api:start\" \"npm run ui:serve\"",
+    "report:clean": "node -e \"require('fs').rmSync('tests-playwright/playwright-report',{recursive:true,force:true})\"",
+    "test": "playwright test --config=tests-playwright/playwright.config.js",
+    "test:ui": "playwright test --ui --config=tests-playwright/playwright.config.js",
+    "test:api": "playwright test -g \"@api\" --config=tests-playwright/playwright.config.js",
+    "test:e2e": "playwright test -g \"@e2e\" --config=tests-playwright/playwright.config.js",
+    "test:db": "playwright test -g \"@db\" --config=tests-playwright/playwright.config.js",
+    "test:contract": "playwright test -g \"@contract\" --config=tests-playwright/playwright.config.js",
+    "test:negative": "playwright test -g \"@negative\" --config=tests-playwright/playwright.config.js",
+    "report": "playwright show-report tests-playwright/playwright-report"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@playwright/test": "^1.55.0",
+    "ajv": "^8.17.1",
+    "ajv-formats": "^3.0.1",
+    "axios": "^1.12.1",
+    "better-sqlite3": "^12.2.0",
+    "concurrently": "^9.2.1",
+    "http-server": "^14.1.1",
+    "js-yaml": "^4.1.0"
+  }
+}

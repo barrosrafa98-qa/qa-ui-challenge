@@ -1,0 +1,17 @@
+{
+  "kind": "array<object>",
+  "keys": [
+    "description",
+    "id",
+    "status",
+    "title",
+    "user_id"
+  ],
+  "types": {
+    "description": "string",
+    "id": "integer",
+    "status": "string",
+    "title": "string",
+    "user_id": "integer"
+  }
+}
