@@ -29,7 +29,7 @@ test.describe('@e2e @negative @security XSS rendering', () => {
       await expect(imgInFirstCell).toHaveCount(1); // As 1 because current application does not handle this scenario
 
       //const firstCellText = await page.locator('#tasksTable tbody tr td:first-child').first().innerText(); Commented because currently application does not handle that scenario
-      //expect(firstCellText).toContain('<img'); // ok remover se preferir só a ausência do <img>
+      //expect(firstCellText).toContain('<img');
     } finally {
       await apiDeleteTask(id).catch(() => {});
     }
